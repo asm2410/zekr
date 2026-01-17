@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Settings, X, Menu } from 'lucide-react';
+import { Settings, X, Menu } from 'lucide-react';
 
 interface Zikr {
   arabic: string;
@@ -1492,30 +1492,36 @@ function App() {
       <div className="p-4" style={{ backgroundColor: colors.header }}>
         <div className="flex gap-3">
           <button
+            onClick={getRandomZikr}
+            className="font-semibold py-4 px-6 rounded-2xl shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 hover:opacity-90"
+            style={{
+              backgroundColor: colors.accent,
+              color: colors.text,
+              flex: '3'
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12.9 7.94043L15.52 10.5604C16.29 11.3304 16.29 12.5904 15.52 13.3604L9 19.8704" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 4.04004L10.04 5.08004" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            الذكر التالي
+          </button>
+          <button
             onClick={getPreviousZikr}
             disabled={zikrHistory.length === 0}
             className="font-semibold py-4 px-6 rounded-2xl shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ 
+            style={{
               backgroundColor: zikrHistory.length === 0 ? colors.header : colors.accent,
               color: colors.text,
               border: zikrHistory.length === 0 ? `2px solid ${colors.accent}` : 'none',
               flex: '1'
             }}
           >
-            <ChevronLeft className="w-5 h-5" />
             الذكر السابق
-          </button>
-          <button
-            onClick={getRandomZikr}
-            className="font-semibold py-4 px-6 rounded-2xl shadow-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 hover:opacity-90"
-            style={{ 
-              backgroundColor: colors.accent,
-              color: colors.text,
-              flex: '3'
-            }}
-          >
-            الذكر التالي
-            <ChevronRight className="w-5 h-5" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ transform: 'scaleX(-1)' }}>
+              <path d="M12.9 7.94043L15.52 10.5604C16.29 11.3304 16.29 12.5904 15.52 13.3604L9 19.8704" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M9 4.04004L10.04 5.08004" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
         </div>
       </div>
